@@ -1,0 +1,36 @@
+# YOLO11 dataset config for Indian currency note detection.
+#
+# IMPORTANT: this is a DIFFERENT format from the plain classification
+# dataset/<denomination>/ folders used by train_model.py (one folder per
+# class, full of images). YOLO needs bounding-box annotations - it has to
+# know WHERE in the frame the note is, not just what denomination it is.
+# Put this dataset in a separate location (dataset/yolo/ below) so the two
+# formats never get mixed up.
+#
+# Expected folder layout:
+#   dataset/yolo/images/train/*.jpg
+#   dataset/yolo/images/val/*.jpg
+#   dataset/yolo/labels/train/*.txt   (same filename as the matching image)
+#   dataset/yolo/labels/val/*.txt
+#
+# Each .txt label file has one line per note in that image:
+#   <class_id> <x_center> <y_center> <width> <height>
+# All four numbers normalized to 0-1 (fraction of image width/height).
+# class_id is the index into the `names` list below (0-based).
+#
+# If you don't have bounding-box annotations yet, a tool like LabelImg,
+# CVAT, or Roboflow can help you draw boxes and export in this exact
+# YOLO txt format.
+
+path: dataset/yolo   # root, relative to the project folder
+train: images/train
+val: images/val
+
+names:
+  0: "10"
+  1: "20"
+  2: "50"
+  3: "100"
+  4: "200"
+  5: "500"
+  6: "2000"

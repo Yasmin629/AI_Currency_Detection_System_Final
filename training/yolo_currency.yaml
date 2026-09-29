@@ -1,0 +1,13 @@
+path: ../dataset_yolo
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: Rs 10
+  1: Rs 20
+  2: Rs 50
+  3: Rs 100
+  4: Rs 200
+  5: Rs 500
+  6: Rs 2000

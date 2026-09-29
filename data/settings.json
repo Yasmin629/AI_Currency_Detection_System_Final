@@ -1,0 +1,11 @@
+{
+  "access_code": "1234",
+  "language": "en",
+  "theme": "dark",
+  "high_contrast": false,
+  "voice_rate": 0.9,
+  "voice_volume": 1.0,
+  "secret_color": "purple",
+  "voice_pitch": 1.0,
+  "camera_resolution": "1080"
+}

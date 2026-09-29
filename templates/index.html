@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Powered Smart Currency Detection System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/product_dashboard.css') }}">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+</head>
+<body>
+    <div class="ambient-decor" aria-hidden="true">
+        <span class="mesh"></span>
+        <span class="blob blob-a"></span>
+        <span class="blob blob-b"></span>
+        <span class="particle p1"></span>
+        <span class="particle p2"></span>
+        <span class="particle p3"></span>
+        <span class="particle p4"></span>
+        <span class="particle p5"></span>
+        <span class="particle p6"></span>
+    </div>
+    <div id="splash" class="splash" aria-live="polite">
+        <div class="secure-orbit">
+            <div class="orbit-ring"></div>
+            <div class="orbit-core"><i data-lucide="shield-check"></i></div>
+        </div>
+        <p class="eyebrow">Voice Secure Access</p>
+        <h1>AI Currency Assistant</h1>
+        <p id="accessPrompt">Say "Start Secure Access" to continue.</p>
+        <div class="mic-visual" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="access-status">
+            <strong>Status</strong>
+            <span id="authStatus">Listening for secure phrase</span>
+        </div>
+        <button id="manualAccessBtn" class="ghost-btn" type="button">
+            <i data-lucide="play-circle"></i>
+            Start Secure Access
+        </button>
+    </div>
+
+    <main id="appShell" class="app-shell is-hidden">
+        <aside class="sidebar" aria-label="Main navigation">
+            <div class="brand">
+                <div class="brand-mark"><i data-lucide="scan-eye"></i></div>
+                <div>
+                    <strong>SmartCurrency AI</strong>
+                </div>
+            </div>
+
+            <nav class="nav-list">
+                <button class="nav-item active" data-view="home"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></button>
+                <button class="nav-item" data-view="scanner"><i data-lucide="camera"></i><span>Currency Detection</span></button>
+                <button class="nav-item" data-view="coin"><i data-lucide="circle-dollar-sign"></i><span>Coin Scanner</span></button>
+                <button class="nav-item" data-view="fake"><i data-lucide="badge-check"></i><span>Fake Currency</span></button>
+                <button class="nav-item" data-view="counter"><i data-lucide="calculator"></i><span>Note Counter</span></button>
+                <button class="nav-item" data-view="history"><i data-lucide="history"></i><span>History</span></button>
+                <button class="nav-item" data-view="sos"><i data-lucide="siren"></i><span>Emergency SOS</span></button>
+                <button class="nav-item" data-view="chatbot"><i data-lucide="bot"></i><span>AI Chatbot</span></button>
+                <button class="nav-item" data-view="settings"><i data-lucide="settings"></i><span>Settings</span></button>
+                <button class="nav-item" data-view="help"><i data-lucide="circle-help"></i><span>Help</span></button>
+                <button class="nav-item" data-view="about"><i data-lucide="info"></i><span>About Project</span></button>
+            </nav>
+
+            <button id="logoutBtn" class="logout-btn" type="button"><i data-lucide="log-out"></i><span>Logout</span></button>
+        </aside>
+
+        <section class="workspace">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">AI Powered Smart Currency Detection System</p>
+                    <h2 id="viewTitle">Dashboard</h2>
+                </div>
+                <div class="topbar-actions">
+                    <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme"><i data-lucide="moon"></i></button>
+                    <div class="voice-orb" aria-hidden="true">
+                        <svg viewBox="0 0 60 60" width="40" height="40">
+                            <circle class="orb-ring" cx="30" cy="30" r="26" fill="none" stroke-width="2"></circle>
+                            <circle class="orb-core" cx="30" cy="30" r="10"></circle>
+                        </svg>
+                    </div>
+                </div>
+            </header>
+
+            <section id="home" class="view active-view">
+                <div class="hero-panel">
+                    <div>
+                        <p class="eyebrow">Real-time Indian currency assistance</p>
+                        <h1>Detect, verify and count currency by voice.</h1>
+                    </div>
+                    <svg class="hero-illustration" viewBox="0 0 160 160" width="140" height="140" aria-hidden="true">
+                        <circle cx="80" cy="80" r="70" class="hero-ring hero-ring-a"></circle>
+                        <circle cx="80" cy="80" r="52" class="hero-ring hero-ring-b"></circle>
+                        <circle cx="80" cy="80" r="34" class="hero-ring hero-ring-c"></circle>
+                        <path class="hero-wave" d="M50 80 Q65 55 80 80 T110 80" fill="none" stroke-width="4" stroke-linecap="round"></path>
+                        <circle cx="80" cy="80" r="6" class="hero-dot"></circle>
+                    </svg>
+                </div>
+
+                <div class="quick-grid">
+                    <button class="feature-card" data-view-trigger="scanner"><i data-lucide="camera"></i><strong>Currency Detection</strong><span>Live webcam scan with confidence score and voice result.</span></button>
+                    <button class="feature-card" data-view-trigger="coin"><i data-lucide="circle-dollar-sign"></i><strong>Coin Scanner</strong><span>Detect Rs 1 to Rs 20 coins by voice.</span></button>
+                    <button class="feature-card" data-view-trigger="fake"><i data-lucide="badge-alert"></i><strong>Fake Currency Detection</strong><span>Heuristic authenticity check with explanation.</span></button>
+                    <button class="feature-card" data-view-trigger="counter"><i data-lucide="receipt-text"></i><strong>Multiple Note Counter</strong><span>Sequential guided counting with spoken total.</span></button>
+                    <button class="feature-card" data-view-trigger="sos"><i data-lucide="siren"></i><strong>Emergency SOS</strong><span>Alarm, location support, and guardian action panel.</span></button>
+                </div>
+
+                <div class="split-grid">
+                    <section class="panel">
+                        <div class="panel-head"><h3>Recent Detection History</h3><button id="refreshHistoryBtn" class="text-btn">Refresh</button></div>
+                        <div id="historyPreview" class="history-list empty">No history yet.</div>
+                    </section>
+                    <section class="panel">
+                        <div class="panel-head"><h3>Accessibility Shortcuts</h3></div>
+                        <div class="shortcut-list">
+                            <span>Open Currency Scanner</span>
+                            <span>Scan Currency</span>
+                            <span>Open Coin Scanner</span>
+                            <span>Open Fake Currency Scanner</span>
+                            <span>Open Note Counter</span>
+                            <span>Open Emergency</span>
+                            <span>Go Home</span>
+                            <span>Help</span>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <section id="scanner" class="view">
+                <div class="scanner-layout">
+                    <section class="panel camera-panel">
+                        <div class="panel-head"><h3>Live Currency Scanner</h3><span id="liveStatus" class="live-pill">Say "Open Currency Scanner" to begin</span></div>
+                        <div class="video-frame">
+                            <video id="camera" autoplay playsinline muted></video>
+                            <canvas id="canvas" class="is-hidden"></canvas>
+                            <div class="scan-line is-hidden" id="scanLine"></div>
+                            <div id="bbox" class="bbox is-hidden">Detected note</div>
+                        </div>
+                        <p class="voice-hint">Voice only: say "Open Currency Scanner" to start the camera, then "Scan Currency" to detect. Say "Stop Camera" when finished.</p>
+                    </section>
+                    <aside class="panel result-panel">
+                        <p class="eyebrow">Latest Detection</p>
+                        <h3 id="resultCurrency">Waiting for scan</h3>
+                        <div class="confidence-ring"><span id="confidenceValue">0%</span></div>
+                        <p id="resultMessage">Say "Open Currency Scanner" to begin.</p>
+                    </aside>
+                </div>
+            </section>
+
+            <section id="coin" class="view">
+                <div class="scanner-layout">
+                    <section class="panel camera-panel">
+                        <div class="panel-head"><h3>Coin Scanner</h3><span id="coinLiveStatus" class="live-pill">Say "Open Coin Scanner" to begin</span></div>
+                        <div class="video-frame">
+                            <video id="coinCamera" autoplay playsinline muted></video>
+                            <canvas id="coinCanvas" class="is-hidden"></canvas>
+                        </div>
+                        <p class="voice-hint">Voice only: say "Open Coin Scanner" to start the camera, then "Scan Coin" to detect. Supports Rs 1, Rs 2, Rs 5, Rs 10 and Rs 20 coins.</p>
+                    </section>
+                    <aside class="panel result-panel">
+                        <p class="eyebrow">Latest Coin Detection</p>
+                        <h3 id="coinResultText">Waiting for scan</h3>
+                        <div class="confidence-ring" id="coinConfidenceRing"><span id="coinConfidenceValue">0%</span></div>
+                        <p id="coinResultMessage">Say "Open Coin Scanner" to begin.</p>
+                    </aside>
+                </div>
+            </section>
+
+            <section id="fake" class="view">
+                <div class="scanner-layout">
+                    <section class="panel camera-panel">
+                        <div class="panel-head"><h3>Fake Currency Detection</h3><span id="fakeLiveStatus" class="live-pill">Say "Open Fake Currency Scanner" to begin</span></div>
+                        <div class="video-frame">
+                            <video id="fakeCamera" autoplay playsinline muted></video>
+                            <canvas id="fakeCanvas" class="is-hidden"></canvas>
+                        </div>
+                        <p class="voice-hint">Voice only: say "Open Fake Currency Scanner" to start the camera, then "Scan" to analyze the note.</p>
+                    </section>
+                    <aside class="panel result-panel">
+                        <p class="eyebrow">Authenticity Check</p>
+                        <div id="fakeResult" class="analysis-result">Result will appear here.</div>
+                    </aside>
+                </div>
+            </section>
+
+            <section id="counter" class="view">
+                <div class="scanner-layout">
+                    <section class="panel camera-panel">
+                        <div class="panel-head"><h3>Multiple Note Counter</h3><span id="counterLiveStatus" class="live-pill">Say "Open Note Counter" to begin</span></div>
+                        <div class="video-frame">
+                            <video id="counterCamera" autoplay playsinline muted></video>
+                            <canvas id="counterCanvas" class="is-hidden"></canvas>
+                        </div>
+                        <p class="voice-hint">Voice only: say "Open Note Counter", show one note at a time, then say "Finish Counting" when done.</p>
+                        <button id="finishCountingBtn" class="secondary-btn" type="button"><i data-lucide="flag"></i>Finish Counting</button>
+                    </section>
+                    <aside class="panel result-panel">
+                        <p class="eyebrow">Counting Session</p>
+                        <div id="counterSessionList" class="counter-session-list empty">No notes counted yet.</div>
+                        <div id="multiResult" class="analysis-result">Total amount will appear here.</div>
+                    </aside>
+                </div>
+            </section>
+
+
+            <section id="history" class="view">
+                <section class="panel">
+                    <div class="panel-head">
+                        <h3>Detection History</h3>
+                        <div class="button-row compact">
+                            <button id="exportHistoryBtn" class="secondary-btn" type="button"><i data-lucide="download"></i>Export</button>
+                            <button id="clearHistoryBtn" class="danger-btn" type="button"><i data-lucide="trash-2"></i>Clear</button>
+                        </div>
+                    </div>
+                    <div class="history-filters">
+                        <input id="historySearch" type="text" placeholder="Search history...">
+                        <select id="historyFilterType">
+                            <option value="">All types</option>
+                            <option value="scan">Currency</option>
+                            <option value="coin">Coin</option>
+                            <option value="fake_check">Fake Check</option>
+                            <option value="counting_session">Counting Session</option>
+                        </select>
+                    </div>
+                    <div id="historyList" class="history-list empty">No history yet.</div>
+                </section>
+            </section>
+
+            <section id="sos" class="view">
+                <section class="panel sos-panel">
+                    <i data-lucide="siren"></i>
+                    <h3>Emergency SOS</h3>
+                    <p>Activates loud voice alert, attempts location capture, and opens quick guardian actions.</p>
+                    <button id="sosBtn" class="danger-btn large" type="button"><i data-lucide="radio-tower"></i>Activate Emergency</button>
+                    <div id="sosResult" class="analysis-result">SOS is inactive.</div>
+                </section>
+            </section>
+
+            <section id="chatbot" class="view">
+                <section class="panel chat-panel">
+                    <div id="chatMessages" class="chat-messages">
+                        <div class="chat-row bot-row">
+                            <div class="chat-avatar bot-avatar"><i data-lucide="bot"></i></div>
+                            <div class="bot-msg">Hello. Ask me about currency detection, RBI notes, accessibility, or how to use this application.</div>
+                        </div>
+                    </div>
+                    <div class="typing-indicator is-hidden" id="chatTyping"><span></span><span></span><span></span></div>
+                    <form id="chatForm" class="chat-form">
+                        <button id="chatMicBtn" type="button" class="mic-btn" aria-label="Speak your question">
+                            <i data-lucide="mic"></i>
+                            <span class="mic-wave-mini"><span></span><span></span><span></span></span>
+                        </button>
+                        <input id="chatInput" type="text" placeholder="Ask the AI assistant, or tap the microphone to speak..." autocomplete="off">
+                        <button class="primary-btn" type="submit"><i data-lucide="send"></i>Send</button>
+                    </form>
+                </section>
+            </section>
+
+            <section id="settings" class="view">
+                <section class="panel settings-grid">
+                    <label>Language (applies after you confirm)
+                        <select id="languageSelect">
+                            <option value="en">English</option>
+                            <option value="hi">Hindi</option>
+                        </select>
+                    </label>
+                    <button id="confirmLanguageBtn" class="secondary-btn" type="button"><i data-lucide="check"></i>Confirm Language Change</button>
+
+                    <label>Voice Speed
+                        <input id="voiceSpeed" type="range" min="0.6" max="1.3" step="0.1" value="0.9">
+                    </label>
+                    <label>Voice Pitch
+                        <input id="voicePitch" type="range" min="0.6" max="1.4" step="0.1" value="1">
+                    </label>
+                    <label>Voice Volume
+                        <input id="voiceVolume" type="range" min="0.2" max="1" step="0.1" value="1">
+                    </label>
+                    <button id="resetVoiceBtn" class="secondary-btn" type="button"><i data-lucide="rotate-ccw"></i>Reset Voice to Default</button>
+
+                    <label class="toggle-field">
+                        <span>Dark Mode</span>
+                        <input id="darkModeToggle" type="checkbox" checked>
+                    </label>
+                    <label class="toggle-field">
+                        <span>High Contrast Mode</span>
+                        <input id="highContrastToggle" type="checkbox">
+                    </label>
+
+                    <label>Camera Resolution
+                        <select id="cameraResolutionSelect">
+                            <option value="480">480p (fastest)</option>
+                            <option value="720" selected>720p (recommended)</option>
+                            <option value="1080">1080p (sharper, slower)</option>
+                        </select>
+                    </label>
+
+                    <label>Microphone
+                        <select id="microphoneSelect"><option value="">Default microphone</option></select>
+                    </label>
+                    <label>Camera
+                        <select id="cameraSelect"><option value="">Default camera</option></select>
+                    </label>
+
+                    <label>Secret Color
+                        <input id="secretColorInput" type="text" value="purple">
+                    </label>
+                    <button id="saveSettingsBtn" class="primary-btn" type="button"><i data-lucide="save"></i>Save Settings</button>
+                    <button id="resetAllSettingsBtn" class="danger-btn" type="button"><i data-lucide="refresh-ccw"></i>Reset All Settings</button>
+                </section>
+            </section>
+
+            <section id="help" class="view">
+                <section class="panel doc-panel">
+                    <h3>Voice Commands</h3>
+                    <p>Open Currency Scanner, Scan Currency, Open Coin Scanner, Scan Coin, Open Fake Currency Scanner, Scan Fake Note, Open Note Counter, Finish Counting, Open Chatbot, Open Settings, Open Emergency, History, Go Home, Stop Camera, Close Camera, Logout, Repeat, Help.</p>
+                    <h3>Accessibility</h3>
+                    <p>Large controls, high contrast mode, screen reader labels, keyboard-friendly navigation, voice guidance and audio feedback are built into the dashboard.</p>
+                </section>
+            </section>
+
+            <section id="about" class="view">
+                <section class="panel doc-panel">
+                    <h3>About Project</h3>
+                    <p>This is a voice-first accessibility application for visually impaired users. It includes currency detection, fake note analysis, multiple note counting, history, voice secure access, chatbot support, settings and emergency assistance.</p>
+                    <h3>AI Upgrade Roadmap</h3>
+                    <p>For production-level accuracy, train YOLOv8 or YOLOv11 on a balanced Indian currency dataset with front, back, old, new, angled, folded, wrinkled and low-light samples. Track precision, recall, F1 score, confusion matrix, loss graph and accuracy graph before replacing the current model file. See <code>docs/AI_MODEL_PLAN.md</code> for dataset sources and the training pipeline.</p>
+                </section>
+            </section>
+        </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="{{ url_for('static', filename='js/product_dashboard.js') }}"></script>
+</body>
+</html>

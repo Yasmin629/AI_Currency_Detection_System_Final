@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 5
+names: ['Five Rupee', 'One Rupee', 'Ten Rupee', 'Twenty Rupee', 'Two Rupee']
+
+roboflow:
+  workspace: prabu
+  project: indian-coin
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/prabu/indian-coin/dataset/2

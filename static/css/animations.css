@@ -1,0 +1,93 @@
+@keyframes floatCard{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+.card{
+
+animation:floatCard 4s ease-in-out infinite;
+
+}
+
+#micButton{
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+box-shadow:0 0 15px cyan;
+
+}
+
+50%{
+
+box-shadow:0 0 45px cyan;
+
+}
+
+100%{
+
+box-shadow:0 0 15px cyan;
+
+}
+
+}
+@keyframes pulseLogo{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.15);
+
+text-shadow:0 0 20px cyan;
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+@keyframes scan{
+
+0%{
+
+top:0;
+
+}
+
+100%{
+
+top:100%;
+
+}
+
+}

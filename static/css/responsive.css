@@ -1,0 +1,47 @@
+@media (max-width:1200px){
+
+.container{
+width:95%;
+}
+
+}
+
+@media (max-width:992px){
+
+.hero{
+flex-direction:column;
+}
+
+.feature-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media (max-width:768px){
+
+.feature-grid{
+grid-template-columns:1fr;
+}
+
+nav ul{
+display:none;
+}
+
+.hero-title{
+font-size:40px;
+}
+
+}
+
+@media (max-width:480px){
+
+.hero-title{
+font-size:32px;
+}
+
+.btn{
+width:100%;
+}
+
+}
